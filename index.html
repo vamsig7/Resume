@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna Vamsi Godavarthi - Interactive Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: A single-page, top-to-bottom scrolling application. Structure: Hero -> Profile -> Skills -> Interactive Experience Timeline -> Education. This linear, interactive flow is more engaging than a static document and guides the user through the candidate's story logically. The timeline interaction encourages exploration by hiding details until requested, reducing initial cognitive load. -->
+    <!-- Visualization & Content Choices: Report Info: Work History -> Goal: Show Progression -> Viz/Presentation: Interactive Vertical Timeline -> Interaction: Click to expand/collapse details -> Justification: More engaging than a static list, focuses user attention. Report Info: Skills List -> Goal: Organize -> Viz/Presentation: Categorized Grid -> Interaction: Hover effects -> Justification: More scannable and visually organized than a plain list. Libraries: None needed beyond Font Awesome for icons. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfdfd;
+            color: #333;
+        }
+        .timeline-item .details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .timeline-item.open .details {
+            max-height: 500px; /* Adjust as needed */
+        }
+        .timeline-item .icon {
+            transition: transform 0.3s ease;
+        }
+        .timeline-item.open .icon {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto max-w-4xl px-4 py-8 sm:py-12 md:py-16">
+
+        <!-- Hero Section -->
+        <header class="text-center mb-12 md:mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 tracking-tight">KRISHNA VAMSI GODAVARTHI</h1>
+            <h2 class="text-xl md:text-2xl font-semibold text-blue-600 mt-2 tracking-wide">SOFTWARE ENGINEER</h2>
+            <div class="mt-6 flex justify-center items-center flex-wrap gap-x-6 gap-y-3 text-gray-600">
+                <a href="#" class="flex items-center hover:text-blue-600 transition-colors">
+                    <i class="fas fa-map-marker-alt w-4 mr-2"></i>
+                    <span>Vijayawada, Andhra Pradesh</span>
+                </a>
+                <a href="tel:+919182966109" class="flex items-center hover:text-blue-600 transition-colors">
+                    <i class="fas fa-phone w-4 mr-2"></i>
+                    <span class="filter blur-sm">+91-9182966109</span>
+                </a>
+                <a href="mailto:krishnavamsig7@gmail.com" class="flex items-center hover:text-blue-600 transition-colors">
+                    <i class="fas fa-envelope w-4 mr-2"></i>
+                    <span>krishnavamsig7@gmail.com</span>
+                </a>
+            </div>
+        </header>
+
+        <main>
+            <!-- Profile Section -->
+            <section id="profile" class="mb-12 md:mb-16">
+                <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-3 mb-6">Profile</h3>
+                <p class="text-gray-700 leading-relaxed text-center md:text-left">
+                    For the past 4.5 years, I've been diving deep into the full software development lifecycle, building and shipping quality applications in fast-paced agile teams. I'm passionate about solving complex problems and creating innovative, user-friendly solutions. I enjoy collaborating with teams, constantly learning new technologies, and turning ideas into reality.
+                </p>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="mb-12 md:mb-16">
+                <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-3 mb-8">Core Competencies</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-lg text-gray-700 mb-3">Languages</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><i class="fab fa-java text-blue-500 w-5 mr-2"></i> Java</li>
+                            <li class="flex items-center"><i class="fab fa-android text-green-500 w-5 mr-2"></i> Kotlin</li>
+                            <li class="flex items-center"><i class="fab fa-apple text-gray-700 w-5 mr-2"></i> Swift</li>
+                            <li class="flex items-center"><i class="fab fa-js-square text-yellow-500 w-5 mr-2"></i> Javascript</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-lg text-gray-700 mb-3">Frameworks</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><i class="fab fa-react text-cyan-500 w-5 mr-2"></i> React Native</li>
+                            <li class="flex items-center"><i class="fas fa-vial w-5 mr-2 text-purple-500"></i> Jest</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-lg text-gray-700 mb-3">Scripting</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><i class="fas fa-terminal w-5 mr-2 text-gray-500"></i> Unix / Shell</li>
+                            <li class="flex items-center"><i class="fab fa-python text-blue-400 w-5 mr-2"></i> Python</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow col-span-1 sm:col-span-2 md:col-span-3">
+                        <h4 class="font-bold text-lg text-gray-700 mb-3">Tools & Platforms</h4>
+                        <p class="text-gray-600 leading-relaxed">
+                            Android Studio, Xcode, GitHub, BrowserStack, Mixpanel, Sentry, GIT, JIRA, Jenkins, TeamCity
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="mb-12 md:mb-16">
+                <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-3 mb-8">Experience Timeline</h3>
+                <div class="relative border-l-2 border-gray-200 ml-4">
+                    <!-- Timeline Item 1 -->
+                    <div class="mb-10 ml-8 timeline-item">
+                        <span class="absolute flex items-center justify-center w-8 h-8 bg-blue-500 rounded-full -left-4 ring-8 ring-white">
+                            <i class="fas fa-briefcase text-white"></i>
+                        </span>
+                        <div class="cursor-pointer timeline-header">
+                            <h4 class="text-lg font-semibold text-gray-800">NortonLifeLock India Private Limited</h4>
+                            <p class="text-sm font-normal text-gray-500">June 2021 - Present</p>
+                            <p class="text-md font-medium text-gray-600 italic mt-1">Software Engineer, SMB Utilities & Web Mobile</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Sub Item 1.1 -->
+                    <div class="mb-10 ml-12 timeline-item">
+                         <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-300 rounded-full -left-3 ring-6 ring-white"></span>
+                        <div class="cursor-pointer timeline-header p-2 rounded-md hover:bg-gray-50">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-700">Project: Password Manager</h5>
+                                    <p class="text-xs text-gray-500">Oct '22 - Present</p>
+                                </div>
+                                <i class="fas fa-chevron-right icon text-gray-400"></i>
+                            </div>
+                        </div>
+                        <div class="details mt-2 pl-4 border-l-2 border-gray-100">
+                            <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm p-4">
+                                <li>Improved application stability by implementing robust defect fixes, reducing the crash rate to an all-time low of 0.08%.</li>
+                                <li>Drove UI/UX enhancements and architected new features to improve user engagement.</li>
+                                <li>Conducted rigorous security vulnerability testing to ensure application integrity and user data protection.</li>
+                                <li>Managed and maintained CI/CD build, signing, and test pipelines for streamlined deployments.</li>
+                                <li>Led the successful upgrade of development tools (React Native) and ensured zero-day support for new Android versions.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Sub Item 1.2 -->
+                    <div class="mb-10 ml-12 timeline-item">
+                         <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-300 rounded-full -left-3 ring-6 ring-white"></span>
+                        <div class="cursor-pointer timeline-header p-2 rounded-md hover:bg-gray-50">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-700">Project: Norton Security and Utilities</h5>
+                                    <p class="text-xs text-gray-500">Jun '21 - Oct '22</p>
+                                </div>
+                                <i class="fas fa-chevron-right icon text-gray-400"></i>
+                            </div>
+                        </div>
+                        <div class="details mt-2 pl-4 border-l-2 border-gray-100">
+                            <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm p-4">
+                                <li>Implemented critical security features from the ground up, including a network firewall.</li>
+                                <li>Integrated on-demand services such as VPN and Disk Cleaner to expand product functionality.</li>
+                                <li>Built a foundational UI component using SwiftUI, contributing to the team's adoption of modern frameworks.</li>
+                                <li>Executed feasibility studies (spikes) on new features and tools to inform technical direction.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                     <!-- Sub Item 1.3 -->
+                    <div class="mb-10 ml-12 timeline-item">
+                         <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-300 rounded-full -left-3 ring-6 ring-white"></span>
+                        <div class="cursor-pointer timeline-header p-2 rounded-md hover:bg-gray-50">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-700">Internship Project</h5>
+                                    <p class="text-xs text-gray-500">Jan '21 - Jun '21</p>
+                                </div>
+                                <i class="fas fa-chevron-right icon text-gray-400"></i>
+                            </div>
+                        </div>
+                        <div class="details mt-2 pl-4 border-l-2 border-gray-100">
+                             <p class="text-sm font-medium text-gray-600 italic p-4 pb-0">UIKit to SwiftUI Migration Study</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm p-4">
+                                <li>Developed a functional SwiftUI prototype of an existing UI to demonstrate migration viability.</li>
+                                <li>Investigated and documented the animation capabilities and limitations of SwiftUI.</li>
+                                <li>Facilitated knowledge sharing by delivering technical demonstrations and presentations on Swift and SwiftUI.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education">
+                <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-3 mb-8">Education</h3>
+                <div class="space-y-6">
+                     <div class="flex items-start">
+                        <div class="w-10 text-center mr-4">
+                            <i class="fas fa-graduation-cap text-2xl text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">BITS University (WILP), Pilani</h4>
+                            <p class="text-gray-600">M.Tech, AI & ML</p>
+                            <p class="text-sm text-gray-500">2023 - Present</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-10 text-center mr-4">
+                            <i class="fas fa-university text-2xl text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">SASTRA Deemed University</h4>
+                            <p class="text-gray-600">B.Tech, CSE</p>
+                            <p class="text-sm text-gray-500">2017 - 2021</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+
+            timelineItems.forEach(item => {
+                const header = item.querySelector('.timeline-header');
+                if (header) {
+                    header.addEventListener('click', () => {
+                        // Close other open items
+                        timelineItems.forEach(otherItem => {
+                            if (otherItem !== item && otherItem.classList.contains('open')) {
+                                otherItem.classList.remove('open');
+                            }
+                        });
+                        // Toggle the clicked item
+                        item.classList.toggle('open');
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
